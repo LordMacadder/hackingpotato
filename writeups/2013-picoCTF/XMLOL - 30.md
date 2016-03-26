@@ -6,7 +6,7 @@ So we simply open the XML in our web browser, right click and view source.
 
 This gives us the source of the broken XML
 
-'''
+```
 <?xml version="1.0" encoding="UTF-8" ?>
 <garbage
   <writing>
@@ -16,6 +16,6 @@ This gives us the source of the broken XML
     <super_secret_flag>421259173230972467344526324586</super_secret_flag>
 
 </ gar <bage>
-'''
+```
 
-And the answer is... '421259173230972467344526324586'
+And the answer is... `421259173230972467344526324586`
