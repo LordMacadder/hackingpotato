@@ -7,11 +7,10 @@ Enter the docking bay for any of the ships that are awaiting launch.
 1. We go to the website in a normal browser and all seems like you would expect
 2. However right click on the webpage and click "view source" which gives us access to comments "hidden" on the page 
 
-```
+   ```
 <!-- DEBUG: Expected Cookie: "authorization=administrator"
 received Cookie: "SNIP" -->
 ```
 
-3. Lets give it what it's expecting and change our cookie using XXXXX
-
-to be continued...
+3. Lets give it what it's expecting and change our cookie using the developer tools console on Google Chrome (press F12, go to the console tab), the specific command we need is `document.cookie="authorization=administrator"`
+4. We refresh the page and are given a table of waiting ships, I used `DX6-7` as the flag
