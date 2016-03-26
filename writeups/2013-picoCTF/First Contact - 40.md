@@ -28,4 +28,4 @@ NEW LOCATION UPDATE COMPLETE
 NEW LOCATION UPDATE SUCCESS
 ```
 
-4. There's our answer `37 14'06"N 115 48'40"W`
+There's our answer `37 14'06"N 115 48'40"W`
