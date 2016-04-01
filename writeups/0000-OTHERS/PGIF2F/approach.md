@@ -1,3 +1,5 @@
+# Puppylizer
+
 Explore visible site, whilst running a OWASP and DIRB scans.
 
 *Flag 1: donate.php setting monetary value to "-1", I have seen this error before on eCommerce sites I used to run.*
