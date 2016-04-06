@@ -19,7 +19,6 @@ for idnum in idrange:
 		request = Request(domain + page + '?id=' + str(idnum) + '&type='+str(typenum))
 		request = urllib2.urlopen(request)
 		response = request.read()
-		#Covert response to JSON so we can process it
 		
 	except urllib2.HTTPError:
 		#invalid category so 500 error
@@ -35,7 +34,7 @@ for idnum in idrange:
 		continue
 
 	# Lets now try to process the json
-	#No point doing this if it's an empty category
+	# No point doing this if it's an empty category
 	if 'children' in jsonresponse:
 
 		categoryname = jsonresponse['name']
