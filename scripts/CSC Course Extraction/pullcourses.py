@@ -14,7 +14,7 @@ fHandle.write('\"categoryName\"' + ', ' + '\"categorylink\"' + ', ' + '\"courseN
 fHandle.close()
 
 for idnum in idrange:
-	time.sleep(1) # Be nice lets not clog up CSC
+	time.sleep(3) # Be nice lets not clog up CSC
 	try:
 		request = Request(domain + page + '?id=' + str(idnum) + '&type='+str(typenum))
 		request = urllib2.urlopen(request)
