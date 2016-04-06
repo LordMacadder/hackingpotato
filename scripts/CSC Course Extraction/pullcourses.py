@@ -42,12 +42,6 @@ for idnum in idrange:
 
 		for child in jsonresponse['children']:
 			if child['type'] == 20:
-				#print categoryname
-				#print categorylink
-				#print child['name']
-				#print child['type']
-				#print child['link']
-				#print child['hidden']
 				fHandle = open(output,'a')
 				fHandle.write('\"' + categoryname + '\", \"' + categorylink + '\", \"' + child['name'] + '\", \"' + str(child['type']) + '\", \"' + child['link'] + '\", \"' + str(child['hidden']) + '\"\n')
 				fHandle.close()
