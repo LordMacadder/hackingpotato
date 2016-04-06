@@ -2,15 +2,15 @@
 
 Explore visible site, whilst running a OWASP and DIRB scans.
 
-*Flag 1: donate.php setting monetary value to "-1", I have seen this error before on eCommerce sites I used to run.*
+**Flag 1: donate.php setting monetary value to "-1", I have seen this error before on eCommerce sites I used to run.**
 
 DIRB and OWASP complete
 
-*Flag 2: found in robots.txt*
+**Flag 2: found in robots.txt**
 
-*Flag 4: found in crossdomain*
+**Flag 4: found in crossdomain**
 
-*Flag 5: found in document in uploads folder*
+**Flag 5: found in document in uploads folder**
 
 OWASP highlighted a potential SQL vulnerability with the username field on the homepage
 
@@ -34,25 +34,25 @@ At this point I restarted the puppylizer VM and noticed it allowed me to engage 
 
 I then moved over to `/var/www` the web root
 
-*Flag 6: found in Y0uN3verwou1dHav3foundTh15With0u7ASh3ll.txt*
+**Flag 6: found in Y0uN3verwou1dHav3foundTh15With0u7ASh3ll.txt**
 
 I then nanoed into the config.php file, and got the sql login creds. This allowed access to /phpmyadmin/ 
 
-*Flag 3: User fakeaccount row in table*
+**Flag 3: User fakeaccount row in table**
 
 Back in root I checked the `/adm1nPan3l/` index, and changed it to echo the comparisons. This gave me the MD5 which I could then reverse.
 
 I then logged into the admin panel using my injection and the reversed md5
 
-*Flag 8: Found in admin panel*
+**Flag 8: Found in admin panel**
 
 I found the SSH details for a user rdizzle and logged in
 
-*Flag 9: welcome message for ssh rdizzle*
+**Flag 9: welcome message for ssh rdizzle**
 
 Back in root, I looked around the file structure and found, a flag in \root\
 
-*Flag 10: \root\flag.txt*
+**Flag 10: \root\flag.txt**
 
 At this point I started the quiz, and found the first three digits of the missing flag along with it's rough position in the order of flags.
 
@@ -60,4 +60,4 @@ I concluded that it must be to do with the website and grepped for the first thr
 
 I then nanoed into the sql file and found that it was hidden in a secret table.
 
-*Flag 7: Secret Table hidden in database*
+**Flag 7: Secret Table hidden in database**
