@@ -26,3 +26,18 @@ root@kali:~# find / -name plink*
 /usr/share/doc/texlive-latex-extra-doc/latex/program/plink.tex
 /usr/share/doc/texlive-doc/latex/program/plink.tex
 ```
+
+## Using your new knowledge find documentation for DNSENUM
+
+```
+root@kali:/# find / -name dnsenum*
+/usr/bin/dnsenum
+/usr/share/doc/dnsenum
+/usr/share/dnsenum
+/var/lib/dpkg/info/dnsenum.list
+/var/lib/dpkg/info/dnsenum.md5sums
+root@kali:/# cd /usr/share/doc/dnsenum/
+root@kali:/usr/share/doc/dnsenum# ls
+changelog.Debian.gz  copyright  README.md
+root@kali:/usr/share/doc/dnsenum# nano README.md 
+```
