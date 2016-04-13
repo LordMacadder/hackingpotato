@@ -1,2 +1,2 @@
-# In this folder are notes taken from OSCP
-It won't be a complete as some of my work will have to be in the private repo but as I learn I'll write my own walkthroughs on approaching various problems mostly to solidify my own knowledge but may also prove helpful to others.
+# In this folder are notes I've made whilst working on OSCP
+It won't be a complete as some of my work will have to be in the private repo but to help me learn and be able to look back I'll jot some notes down here.
