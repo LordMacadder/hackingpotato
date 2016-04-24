@@ -56,6 +56,11 @@
    ```
    #!/bin/bash
    for ip in $(seq  72 91); do
-      host 38.100.193.$ip | grep "domain name pointer" | cut -d" " -f1,5
+      host ##.##.##.$ip | grep "domain name pointer" | cut -d" " -f1,5
    done
    ```
+
+## Zone Transfers
+
+1. Get the name servers again `host ns xyz.com`
+2. Attempt to transfer the dns zone, you may need to try each ns server `host -l xyz.com ns2.xyz.com`
