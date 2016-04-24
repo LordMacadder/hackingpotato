@@ -23,3 +23,29 @@
 
 ## Forward DNS Lookup
 
+1. populate a text file with a list of potential subdomains
+
+    ```
+    www
+    ftp
+    mx
+    mail
+    admin
+    portal
+    owa
+    proxy
+    router
+    www2
+    firewall
+    pop3
+    imap
+    ```
+2. Then create a shell to loop through and run the host command outputting valid results
+
+    ```
+    #!/bin/bash
+    for name in $(cat list.txt); do
+	   host $name.megacorpone.com|grep "has address"|cut -d" " -f1,4
+    done
+    ```
+
