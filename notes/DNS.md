@@ -64,3 +64,8 @@
 
 1. Get the name servers again `host ns xyz.com`
 2. Attempt to transfer the dns zone, you may need to try each ns server `host -l xyz.com ns2.xyz.com`
+3. A simple bash one liner to do the job is as follows
+
+   ```
+   for ns in $(host -t ns xyz.com | cut -d" " -f4); do host -l xyz.com $ns; done
+   ```
