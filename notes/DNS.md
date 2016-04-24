@@ -48,6 +48,7 @@
 	   host $name.xyz.com|grep "has address"|cut -d" " -f1,4
     done
     ```
+
 ## Reverse DNS lookup
 
 1. From the forward lookup we can take the minimum ip range (72) and the maximum (91) and run host against those inbetween to discover any hosts we might of missed using the below bash
