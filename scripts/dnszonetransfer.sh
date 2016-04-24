@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$1" ]; then
-        echo "please use domain name as arguement"
+        echo "please enter a domain name i.e ./dnszonetransfer.sh domain.com"
         exit 0
 fi
 
