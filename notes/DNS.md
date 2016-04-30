@@ -71,3 +71,9 @@
    ```
    for ns in $(host -t ns xyz.com | cut -d" " -f4); do host -l xyz.com $ns; done
    ```
+
+## DNSRecon
+* Zonetransfers `dnsrecon -d xyz.com -t axfr`
+
+## DNSenum
+* Zonetransfers `dnsenum zonetransfer.me`
