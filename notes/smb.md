@@ -22,6 +22,7 @@ Will gather a wealth of information from null session `enum4linux -v xx.xx.x.202
 
 ###Nmap SME scripts
 * nmap has a number of scripts a full list can be found using `ls -l /usr/share/nmap/scripts/ | grep "smb"`
+* Get OS `nmap -p 139,445 --script smb-os-discovery xx.xx.x.220`
 * Enumerate users `nmap -p 139,445 --script smb-enum-users xx.xx.x.202 -oN nmap-enum-users.txt`
 * Check for vulns `nmap -p 139,445 --script smb-check-vulns --script-args=unsafe=1 10.11.1.229 -oN nmap-smb-vuln.txt`
 
