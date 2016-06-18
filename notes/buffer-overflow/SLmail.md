@@ -83,6 +83,12 @@
 
 4. We modify our exploit to be at least 3500 bytes long, you can see this in `pop3-sl-shellcheck.py`
 
-5. 
+5. Once we run that and follow `ESP` again we can see that we have many more "C" values more than enough for our shellcode
 
+6. Restart and get ready for the next section 
+
+## Check for Bad Characters
+1. We need to check for bad characters that might have adverse effects on our programme, we do this by effectively sending all characters from `00` to `FF`
+
+2. I've modified the explit to send all the bad characters, this can be found at `pop3-sl-badcharacters.py`
 
