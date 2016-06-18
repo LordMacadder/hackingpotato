@@ -70,6 +70,19 @@
 
 8. Lets restart as usual and then we will modify the exploit to confirm this
 
-9. 
+9. We modified the exploit to now print "A" characters until offset 2606, "B" characters for 4 characters, and then "C" characters for the rest. You can see this exploit in `pop3-sl-pconfirmation.py`
+
+10. Now when we run our exploit EIP should be filled with "B" characters (`42`), confirming that the 4 bytes inhabited by "B" are indeed controlling the EIP register
+
+## Finding a location for shellcode
+1. If we examine the `ESP` register by right clicking and then going to `Follow Dump`, we can see that it points to the start of our C location
+
+2. Unfortunately the typical shellcode is between 350/400 bytes and we can only see we control ~84 bytes
+
+3. Lets restart and then try sending a large enough "C" payload to see if we can extend our overflow
+
+4. We modify our exploit to be at least 3500 bytes long, you can see this in `pop3-sl-shellcheck.py`
+
+5. 
 
 
