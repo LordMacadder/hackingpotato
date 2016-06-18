@@ -49,5 +49,27 @@
 ## Replicating
 1. Now we need to create a script that will replicate the crash without having to fuzz each time, this is done using a script that replicates the number of bytes we know to cause the crash (see `pop3-slmail-replication.py`)
 
-2. 
+2. After using the script we can see that again we have managed to crash the programme and overwrite the EIP register
+
+3. Restart SLmail and the debugger as normal, remember to click the `play` icon to kick off the programme once it's attached
+
+## Controlling EIP
+1. Controlling EIP is important because it allows us to hijack the programme, so we need to find out which bytes are effecting EIP
+
+2. We do this using a ruby script called `pattern_create.rb`, to find this use `updatedb; locate pattern_create`
+
+3. We can then run this programme to generate a unique set of 2700 bytes `/usr/share/metasploit-framework/tools/pattern_create.rb 2700`
+
+4. Take the buffer generated and plug it into our exploit (see `pop3-slmail-pattern.py`)
+
+5. Run the exploit and our programme once again crashes but this time with a different value in the `EIP` register
+
+6. We can then use the `pattern_offset.rb` script to find out which bytes are in the `EIP` register  (it's in the same directory as pattern_create)
+
+7. Running `/usr/share/metasploit-framework/tools/pattern_offset.rb 39694438` where `39694438` was the contents of our EIP register gives us the offset location `2606`
+
+8. Lets restart as usual and then we will modify the exploit to confirm this
+
+9. 
+
 
