@@ -92,3 +92,47 @@
 
 2. I've modified the explit to send all the bad characters, this can be found at `pop3-sl-badcharacters.py`
 
+3. Then we run the script and once it causes the crash we will check for truncation and mangeled/missing characters by checking the ESP register again
+
+4. For example if we look at the list of hex we can see that `0A` is missing and seems to have truncated further data, we will remove this then restart/rerun our script
+
+5. Repeat step 4 until you have removed and noted all bad characters, a completed script can be found at `pop3-sl-badcharacterscomplete.py` and we found the bad characters `\x00 \x0a \x0d`
+
+## Finding a redirection execution
+1. As our buffer is stored in different address each time, we need to find a way to consistantly redirect code to the `ESP` register which will be pointing to our shell code
+
+2. So we need to find the instruction `JMP ESP` which does not change on restart
+
+3. We use `mona` for this, by typing `!mona modules`, which lists out all the modules the programme uses
+
+4. We then need to find a module with no protections (such as `ASLR`) and no bad characters in it's address such as `00`
+
+5. The only one we find is `SLMFC.dll`, now we look for the `JMP ESP` command
+
+6. Click the dll and then click on the `e` in the top bar, then double click on our `SLMFC.dll`
+
+7. Right click on the machine code, go to `search for` and then `command` and type `jmp esp`, which unfortunately none will be found
+
+8. So lets try searching for a sequence using `search for` and then `command sequence`, typing `push esp` and then `rtn` on a new line
+
+9. However all is not lost, this only searches the code marked as executable but as the module is not protected by ASLR/DEP we can use any code from the module (use `m` from the top bar to see what is executable)
+
+10. Now lets search for the opcode of `jmp esp`, which can be found using `nasm_shell.rb`
+
+11. By executing nasm_shell we find the opcode is `FFE4`
+
+    ```
+    /usr/share/metasploit-framework/tools/nasm_shell.rb
+    nasm > jmp esp
+    00000000  FFE4              jmp esp
+    ```
+
+12. We then use mona to search for this within the dll, using `!mona find -s "\xff\xe4" -m slmfc.dll` 
+
+13. Look for one with an address that doesn't contain any bad characters such as `0x5f4a358f`
+
+14. To verify this go to that specific address using the blue icon next to the `l`, which will take you to any address entered
+
+15. Restart SLM and the debugger
+
+16. 
