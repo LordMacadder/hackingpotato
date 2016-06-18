@@ -135,4 +135,8 @@
 
 15. Restart SLM and the debugger
 
-16. 
+16. Now lets replace our EIP with the address we found, remember it's little endian so reverse it. You can see this in `pop3-sl-eiptest.py`.
+
+17. Place a breakpoint on our `jmp esp` so we can confirm that it gets executed, this is done by going to the address and pressing `F2`
+
+18. Run our confirmation
