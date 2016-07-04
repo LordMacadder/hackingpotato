@@ -1,4 +1,4 @@
-echo open 10.11.0.138>> ftp.txt
+echo open YO.UR.IP.ADD>> ftp.txt
 echo offsec>> ftp.txt
 echo lab>> ftp.txt
 echo bin>> ftp.txt
