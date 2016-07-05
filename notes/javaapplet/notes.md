@@ -5,7 +5,7 @@ Will give warning message but users may just click yes
 
 2. Create a manifest file using `echo "Permissions: all-permisions" > /root/manifest.txt`
 
-3. Compile the code using `javac Java.java` then `jar cvfm Java.java /root/manifest.txt Java.class`
+3. Compile the code using `javac Java.java` then `jar cvfm Java.jar /root/manifest.txt Java.class`
 
 4. Then generate a key `keytool -genkey -alias signapplet -keystore mykeystore -keypass mykeypass -storepass password123` answering the questions as you see fit
 
