@@ -1,6 +1,7 @@
 # Images
 * Open file and look
 * Run `file`
+* Run `strings`
 * Run `binwalk`, if anything extract it using `binwalk -e`
 * Run `exiftool`
 * Open in text editor check start/end for markers
@@ -15,6 +16,7 @@
 # Sound
 * Open file and listen
 * Run `file`
+* Run `strings`
 * Run `binwalk`, if anything extract it using `binwalk -e`
 * Check metadata
 * Check LSB
