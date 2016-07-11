@@ -30,4 +30,8 @@
 * https://eindbazen.net/2012/05/plaid-ctf-2012-debit-or-credit/ (binary data hidden in waveform of .wav)
 * https://travisroyer.wordpress.com/2015/03/14/n00bs-ctf-labs-level-10-solution/ (data hidden in high pitch noise, found by slowing down .wav)
 * Recover a phone number from audio recording of it being dialed (http://nopsr.us/ctf2006prequal/walk-forensics.html)
-* 
+* https://eindbazen.net/2014/09/no-con-name-ctf-stegosaurus/ (Morse hidden in a mp3)
+* Recovered background voice from audio (https://stratum0.org/blog/posts/2013/09/27/asisctf-2013-a-soothing-piano-stego/)
+* Recovering keystrokes from .wav (http://int3pids.blogspot.co.uk/2012/05/plaidctf-2012-traitor-200-pts.html)
+* Recovering brail from spectrum of .wav (https://www.asafety.fr/en/cryptologie/ctf-ndh-2016-quals-write-up-steganalysis-stegano-sound/)
+* Hidden in notes of tune (http://nandynarwhals.org/2015/07/13/polictf-2015-its-hungry-forensics-100/)
