@@ -2,6 +2,12 @@
 import sys, os, argparse, urllib2, time, json
 from urllib2 import Request
 from multiprocessing import Pool
+import ssl
+
+## CSC cert errored this is a dirty fix
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
 
 domain = 'https://pod.cybersecuritychallenge.org.uk'
 page = '/lib/ajax/getnavbranch.php'
@@ -17,7 +23,7 @@ for idnum in idrange:
 	time.sleep(3) # Be nice lets not clog up CSC
 	try:
 		request = Request(domain + page + '?id=' + str(idnum) + '&type='+str(typenum))
-		request = urllib2.urlopen(request)
+		request = urllib2.urlopen(request, context=ctx)
 		response = request.read()
 		
 	except urllib2.HTTPError:
