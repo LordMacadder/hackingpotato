@@ -9,8 +9,8 @@ The password for the next level is stored in a file called - located in the home
 2. List the home directory using `ls`
 
    ```
-   bandit0@melinda:~$ ls
-   readme
+   bandit1@melinda:~$ ls
+   -
    ```
 
 3. Then cat the - file using the relative path to give us the flag
