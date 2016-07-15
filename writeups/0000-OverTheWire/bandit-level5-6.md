@@ -8,7 +8,7 @@ The password for the next level is stored in a file somewhere under the inhere d
 * not executable
 
 ##Solution
-1. SSH onto the server with the username bandit4
+1. SSH onto the server with the username bandit5
 
 2. List the home directory using `ls -a`
 
