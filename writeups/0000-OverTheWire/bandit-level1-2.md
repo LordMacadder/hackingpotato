@@ -16,7 +16,7 @@ The password for the next level is stored in a file called - located in the home
 3. Then cat the - file using the relative path to give us the flag
 
    ```
-   bandit0@melinda:~$ cat ./-
+   bandit1@melinda:~$ cat ./-
    CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
    ```
 
