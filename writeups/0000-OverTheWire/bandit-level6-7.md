@@ -1,4 +1,4 @@
-#Bandit: Level 5 -> 6
+#Bandit: Level 6 -> 7
 
 ##Goal
 The password for the next level is stored somewhere on the server and has all of the following properties: 
@@ -8,7 +8,7 @@ The password for the next level is stored somewhere on the server and has all of
 * 33 bytes in size
 
 ##Solution
-1. SSH onto the server with the username bandit4
+1. SSH onto the server with the username bandit6
 
 2. Using a bash one liner we should be able to find matching files
 
