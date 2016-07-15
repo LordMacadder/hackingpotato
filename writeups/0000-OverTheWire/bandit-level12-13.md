@@ -5,29 +5,22 @@ The password for the next level is stored in the file data.txt, which is a hexdu
 ##Solution
 1. SSH onto the server with the username bandit12
 
-2. list the folder contents
+2. Move the file over to a temporary place to work on it using `mkdir`, `cp` and `mv`
 
-   ```
-   bandit11@melinda:~$ ls
-   data.txt
-   ```
-
-3. Move the file over to a temporary place to work on it using `mkdir`, `cp` and `mv`
-
-4. convert the hexdump back to a file
+3. convert the hexdump back to a file
 
    ```
    bandit12@melinda:/tmp/working$ cat hexdump.txt | xxd -r > data.txt
    ```
 
-5. Run `file` on this to see what we have
+4. Run `file` on this to see what we have
 
    ```
    bandit12@melinda:/tmp/working$ file data.txt
    data.txt: gzip compressed data, was "data2.bin", from Unix, last modified: Fri Nov 14 10:32:20 2014, max compression
    ```
 
-6. Uncompress and then run file on the output, rinse and repeat until you get the output `data: ASCII text` from your file command
+5. Uncompress and then run file on the output, rinse and repeat until you get the output `data: ASCII text` from your file command
 
    For gzip
    ```
@@ -53,7 +46,7 @@ The password for the next level is stored in the file data.txt, which is a hexdu
    data6.bin
    ```
 
-7. Once you have the ASCII output from a `file` command, just cat the file
+6. Once you have the ASCII output from a `file` command, just cat the file
 
    ```
    bandit12@melinda:/tmp/working$ cat data
