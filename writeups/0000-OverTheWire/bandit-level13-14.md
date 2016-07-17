@@ -50,4 +50,11 @@ The password for the next level is stored in the file data.txt, which is a hexdu
    -----END RSA PRIVATE KEY-----
    ```
 
-4. You can now login to bandit 14 using `ssh -i bandit14.private bandit14@bandit.labs.overthewire.org`
+4. You can now login to bandit 14 using `ssh -i bandit14.private bandit14@bandit.labs.overthewire.org` and cat the password file
+
+    ```
+    bandit14@melinda:~$ cat  /etc/bandit_pass/bandit14
+    4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+    ```
+
+Flag: 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
