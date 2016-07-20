@@ -66,4 +66,6 @@ The credentials for the next level can be retrieved by submitting the password o
    -----END RSA PRIVATE KEY-----
     ```
 
-Flag: cluFn7wTiGryunymYOu4RcffSxQluehd
+5. Login with that and we can now access the password `cat /etc/bandit/bandit17`
+
+Flag: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
