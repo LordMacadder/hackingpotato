@@ -1,7 +1,7 @@
 #Bandit: Level 8 -> 9
 
 ##Goal
-The password for the next level is stored in the file data.txt next to the word millionth
+The password for the next level is stored in the file data.txt and is the only line of text that occurs only once
 
 ##Solution
 1. SSH onto the server with the username bandit8
