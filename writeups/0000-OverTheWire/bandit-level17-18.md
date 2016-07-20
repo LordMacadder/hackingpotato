@@ -29,4 +29,4 @@ There are 2 files in the homedirectory: passwords.old and passwords.new. The pas
    passwords.new:kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
    ```
 
-Flag: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+Flag: kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
