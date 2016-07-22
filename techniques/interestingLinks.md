@@ -18,3 +18,6 @@ www.malwaretech.com/2016/03/lets-analyze-dridex-part-1.html
 
 ##Postcode API
 http://postcodes.io/
+
+##Shell CMD analysis
+http://explainshell.com/
