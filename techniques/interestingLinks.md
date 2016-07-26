@@ -21,3 +21,6 @@ http://postcodes.io/
 
 ##Shell CMD analysis
 http://explainshell.com/
+
+##Exploit Excersises
+http://exploit-exercises.com/
