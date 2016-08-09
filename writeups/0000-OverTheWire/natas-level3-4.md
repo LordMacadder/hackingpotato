@@ -2,7 +2,7 @@
 
 ##Goal
 Username: natas3
-URL:      http://natas2.natas.labs.overthewire.org
+URL:      http://natas3.natas.labs.overthewire.org
 
 ##Solution
 1. In the source told that not even Google will find it
