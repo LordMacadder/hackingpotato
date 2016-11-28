@@ -1,8 +1,8 @@
 #Natas: Level 6 -> 7
 
 ##Goal
-Username: natas5
-URL:      http://natas5.natas.labs.overthewire.org/index.php
+Username: natas6
+URL:      http://natas6.natas.labs.overthewire.org/index.php
 
 ##Solution
 1. Visit the page and you are prompted to enter a secret
